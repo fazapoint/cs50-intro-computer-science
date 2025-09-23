@@ -3,12 +3,13 @@
 
 void left_pyramid(int count_block);
 void right_pyramid(int count_block);
+void left_pyramid_2(int count_block);
 void print_line();
 
 int main()
 {
     print_line();
-    int selected_option = get_int("what type of pyramid you want? \n1.Left Pyramid \n2.Blabla Pyramid \nEnter your choice of pyramid: ");
+    int selected_option = get_int("what type of pyramid you want? \n1.Left Pyramid \n2.Right Pyramid \n3. Left Pyramid (Helper)\nEnter your choice of pyramid: ");
     print_line();
     int count_block = 0;
 
@@ -21,6 +22,10 @@ int main()
         case 2:
             count_block = get_int("How many block you want to make?: ");
             right_pyramid(count_block);
+            break;
+        case 3:
+            count_block = get_int("How many block you want to make?: ");
+            left_pyramid_2(count_block);
             break;
         default:
             print_line();
@@ -41,6 +46,17 @@ void print_line()
     printf("==============================================\n");
 }
 
+// function to print blocks or bricks
+void print_row(int count_rows)
+{
+    for(int x = 0; x < count_rows; x++)
+    {
+        printf("#");
+    }
+    printf("\n");
+}
+
+
 // function to make left pyramid
 void left_pyramid(int count_block)
 {
@@ -55,6 +71,17 @@ void left_pyramid(int count_block)
         printf("\n");
     }
 }
+
+// function to make left pyramid with print_row helper / function
+void left_pyramid_2(int count_block)
+{
+    printf("======= %i of mario block with helper =======\n\n",count_block);
+    for(int x = 0; x < count_block; x++)
+    {
+        print_row(x + 1);
+    }
+}
+
 
 // function to make right pyramid
 void right_pyramid(int count_block)
